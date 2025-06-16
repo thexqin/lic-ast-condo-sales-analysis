@@ -78,7 +78,7 @@ The analysis culminates in valuable metrics like the average price per square fo
 This plot shows the distribution of price per square foot for condo sales in Long Island City from 2019 to 2025.
 
 ![lic_boxplot_price_per_sqft](lic_chart.png)
-![lic_boxplot_price_per_sqft](lit_plot.png)
+![lic_boxplot_price_per_sqft](lic_plot.png)
 
 ### Astoria (AST) 2019-2025 $/SQFT
 

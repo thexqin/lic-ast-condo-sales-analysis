@@ -100,7 +100,7 @@ Based on the processed sales data from 2019 to 2025, focusing on residential con
 
 This suggests that, on average, condominiums in LIC commanded a premium in terms of price per square foot compared to Astoria during the analyzed period. This could be attributed to various factors such as proximity to Manhattan, newer developments, and local amenities. However, it's important to note that this analysis provides a general overview, and further granular analysis considering factors like specific building characteristics, location within the neighborhood, and time trends would offer a more comprehensive understanding of the market dynamics.
 
-## Next Steps
+## ➡️ Next Steps
 
   * Explore time-based trends in sales prices and price per square foot.
   * Analyze the impact of building age and other property features on sale prices.

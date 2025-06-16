@@ -17,8 +17,8 @@ Whether you're a real estate enthusiast, a data science learner, or just curious
 
 This analysis relies on data from two primary sources:
 
-  * **NYC Department of Finance (DOF) Rolling Sales Data:** The initial sales transaction data (`2020-2025.csv`) is sourced from the NYC Department of Finance, providing details on property sales, addresses, and prices.
-  * **NYC Department of Buildings (DOB) - Socrata API:** We utilize the [NYC DOB - Building Permits Issuance](https://www.google.com/search?q=https://data.cityofnewyork.us/Housing-Development/DOB-Building-Permits-Issued/8y4t-faws) dataset via the Socrata API to programmatically retrieve gross square footage for specific apartment units.
+  * **NYC Department of Finance (DOF) Rolling Sales Data:** The initial sales transaction data (`2020-2025.csv`) is sourced from the NYC Department of Finance, providing details on property sales, addresses, and prices. You can typically find this data on the [NYC.gov website](https://www.nyc.gov/site/finance/property/property-rolling-sales-data.page).
+  * **NYC Department of Finance (DOF) - Property Valuation and Assessment Data Tax Classes 1,2,3,4 (Socrata API):** We utilize the [NYC OpenData portal's Property Valuation and Assessment Data (Dataset ID: `8y4t-faws`)](https://www.google.com/search?q=%5Bhttps://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data-Tax-Classes/8y4t-faws%5D\(https://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data-Tax-Classes/8y4t-faws\)) via its Socrata API to programmatically retrieve gross square footage for specific apartment units based on address and apartment number.
 
 ## 🛠️ How to Use
 
@@ -47,7 +47,7 @@ To use the Socrata API for fetching square footage data, you'll need an **APP TO
   * Sign up for a free account.
   * Generate an App Token (usually found in your profile settings or when accessing API documentation).
 
-Once you have your `APP_TOKEN`, you'll need to set it in the notebook. **For security, avoid hardcoding it directly.** While the provided notebook code uses `APP_TOKEN` directly, in a production setting, you would load this from an environment variable or a secure configuration file.
+Once you have your `APP_TOKEN`, you'll need to use it in the notebook. **For security, avoid hardcoding it directly in public repositories.** While the provided notebook code uses `APP_TOKEN` directly, in a production setting, you would load this from an environment variable or a secure configuration file.
 
 ### 4\. Place Your Data
 
@@ -69,9 +69,25 @@ Execute each cell sequentially. The notebook will:
   * Calculate and display price per square foot.
   * Export the refined data to `2019-2025-lic.csv` and `2019-2025-ast.csv`.
 
-## 📈 Insights
+## 📈 Insights & Visualizations
 
-The analysis generates valuable metrics like the average price per square foot for condos in LIC and Astoria, allowing for direct comparison and trend observation. Visualizations (like box plots for $$/SQFT$) help in understanding the distribution and identifying outliers in property values.
+The analysis culminates in valuable metrics like the average price per square foot for condos in LIC and Astoria. Box plots are generated to help visualize the distribution of these values, identify typical price ranges, and spot any outliers.
+
+Here are the box plots generated from the analysis (please generate these images from the notebook and add them to your repository, e.g., in an `images/` directory, then update the paths below):
+
+### Long Island City (LIC) 2019-2025 $/SQFT
+
+This plot shows the distribution of price per square foot for condo sales in Long Island City from 2019 to 2025.
+
+!(lic_boxplot_price_per_sqft)[lic.png]
+
+### Astoria (AST) 2019-2025 $/SQFT
+
+This plot illustrates the distribution of price per square foot for condo sales in Astoria from 2019 to 2025.
+
+!(ast_boxplot_price_per_sqft.png)[ast.png]
+
+These visualizations help in understanding the typical value range and spread of condo prices in each neighborhood, with the central line indicating the median, the box showing the interquartile range, and the "whiskers" extending to show variability outside the upper and lower quartiles. Outlier points are individually marked.
 
 ## 🤝 Contributing
 

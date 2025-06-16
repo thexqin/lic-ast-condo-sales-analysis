@@ -18,7 +18,7 @@ Whether you're a real estate enthusiast, a data science learner, or just curious
 This analysis relies on data from two primary sources:
 
   * **NYC Department of Finance (DOF) Rolling Sales Data:** The initial sales transaction data (`2020-2025.csv`) is sourced from the NYC Department of Finance, providing details on property sales, addresses, and prices. You can typically find this data on the [NYC.gov website](https://www.nyc.gov/site/finance/property/property-rolling-sales-data.page).
-  * **NYC Department of Finance (DOF) - Property Valuation and Assessment Data Tax Classes 1,2,3,4 (Socrata API):** We utilize the [NYC OpenData portal's Property Valuation and Assessment Data (Dataset ID: `8y4t-faws`)](https://www.google.com/search?q=%5Bhttps://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data-Tax-Classes/8y4t-faws%5D\(https://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data-Tax-Classes/8y4t-faws\)) via its Socrata API to programmatically retrieve gross square footage for specific apartment units based on address and apartment number.
+  * **NYC Department of Finance (DOF) - Property Valuation and Assessment Data Tax Classes 1,2,3,4 (Socrata API):** We utilize the [NYC OpenData portal's Property Valuation and Assessment Data Tax Classes 1,2,3,4](https://data.cityofnewyork.us/City-Government/Property-Valuation-and-Assessment-Data-Tax-Classes/8y4t-faws/about_data) via its Socrata API to programmatically retrieve gross square footage for specific apartment units based on address and apartment number.
 
 ## 🛠️ How to Use
 

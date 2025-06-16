@@ -73,19 +73,17 @@ Execute each cell sequentially. The notebook will:
 
 The analysis culminates in valuable metrics like the average price per square foot for condos in LIC and Astoria. Box plots are generated to help visualize the distribution of these values, identify typical price ranges, and spot any outliers.
 
-Here are the box plots generated from the analysis (please generate these images from the notebook and add them to your repository, e.g., in an `images/` directory, then update the paths below):
-
 ### Long Island City (LIC) 2019-2025 $/SQFT
 
 This plot shows the distribution of price per square foot for condo sales in Long Island City from 2019 to 2025.
 
-!(lic_boxplot_price_per_sqft)[lic.png]
+![lic_boxplot_price_per_sqft](lic.png)
 
 ### Astoria (AST) 2019-2025 $/SQFT
 
 This plot illustrates the distribution of price per square foot for condo sales in Astoria from 2019 to 2025.
 
-!(ast_boxplot_price_per_sqft.png)[ast.png]
+![ast_boxplot_price_per_sqft.png](ast.png)
 
 These visualizations help in understanding the typical value range and spread of condo prices in each neighborhood, with the central line indicating the median, the box showing the interquartile range, and the "whiskers" extending to show variability outside the upper and lower quartiles. Outlier points are individually marked.
 

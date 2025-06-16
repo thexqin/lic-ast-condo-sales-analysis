@@ -9,8 +9,10 @@ Whether you're a real estate enthusiast, a data science learner, or just curious
   * **Data Loading & Initial Exploration:** Effortlessly load raw sales data from CSV and get a quick overview.
   * **Robust Data Cleaning:** Automate the cleaning process by dropping irrelevant columns and converting data types for better analysis. 🧹
   * **Neighborhood-Specific Processing:** Focus on specific areas (LIC and Astoria) to analyze their unique market dynamics, filtering by relevant property types and sale conditions.
+  * **Address Standardization**: Cleans and standardizes address formats for better consistency.
   * **External Data Integration:** Leverage the Socrata Open Data API to fetch crucial **Gross Square Footage (SQFT)** information for individual units, enhancing the accuracy of price calculations. 📊
   * **Price Per Square Foot Calculation:** Compute a standardized metric ($$/SQFT$) to compare property values across different units and neighborhoods.
+  * **Outlier Handling**: Implements basic filtering to focus on a reasonable range of price per square foot values for more meaningful statistical descriptions and visualizations.
   * **Data Export:** Export processed and enriched dataframes to CSV for further analysis or visualization. 💾
 
 ## 📊 Data Sources
@@ -88,6 +90,22 @@ This plot illustrates the distribution of price per square foot for condo sales 
 ![ast_boxplot_price_per_sqft.png](ast_plot.png)
 
 These visualizations help in understanding the typical value range and spread of condo prices in each neighborhood, with the central line indicating the median, the box showing the interquartile range, and the "whiskers" extending to show variability outside the upper and lower quartiles. Outlier points are individually marked.
+
+## 💡 Conclusion from the Analysis
+
+Based on the processed sales data from 2019 to 2025, focusing on residential condominiums (Building Class R4) with valid sale prices and successfully integrated square footage data, we observed the following:
+
+  * **Long Island City (LIC)** exhibited a higher median price per square foot ($/SQFT) of approximately **$1396** based on a sample of 728 transactions within a reasonable $/SQFT range ($500 - $4000).
+  * **Astoria** showed a lower median price per square foot of around **$1177** based on a sample of 308 transactions within a defined $/SQFT range ($500 - $2400).
+
+This suggests that, on average, condominiums in LIC commanded a premium in terms of price per square foot compared to Astoria during the analyzed period. This could be attributed to various factors such as proximity to Manhattan, newer developments, and local amenities. However, it's important to note that this analysis provides a general overview, and further granular analysis considering factors like specific building characteristics, location within the neighborhood, and time trends would offer a more comprehensive understanding of the market dynamics.
+
+## Next Steps
+
+  * Explore time-based trends in sales prices and price per square foot.
+  * Analyze the impact of building age and other property features on sale prices.
+  * Conduct more detailed geographical analysis within each neighborhood.
+  * Incorporate additional datasets, such as demographic information or economic indicators, to provide richer insights.
 
 ## 🤝 Contributing
 

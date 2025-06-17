@@ -285,6 +285,8 @@ df2['year'] = df2['SALE DATE'].dt.year
 df2.groupby(['year', 'month']).size().plot.bar(figsize=(24, 6), rot=45, title='Skyline Tower Sales by Month')
 ```
 
+![2315_bar_plot](2315_bar.png)
+
 ## 💡 Key Findings
 
 Based on the processed residential condo sales data from 2018 to 2025, with valid sale prices and integrated square footage:

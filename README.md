@@ -20,7 +20,7 @@ This Jupyter notebook-based project delivers a comprehensive analytical pipeline
   * **Neighborhood-Specific Processing:** Filter and process data for LIC and Astoria to analyze their unique market dynamics, focusing on specific property types and sale conditions.
   * **Address Standardization:** Clean and standardize address formats for consistency, which is crucial for successful API lookups.
   * **External Data Integration:** Leverage the Socrata Open Data API to fetch **Gross Square Footage (sqft)** for individual units, enhancing the accuracy of price calculations.
-  * **Price Per Square Foot Calculation:** Compute a standardized $$/sqft$ metric to enable fair comparisons of property values.
+  * **Price Per Square Foot Calculation:** Compute a standardized $/sqft metric to enable fair comparisons of property values.
   * **Outlier Handling:** Implement basic filtering to remove extreme outliers and focus on a more reasonable range of price per square foot values, ensuring more meaningful statistical descriptions and visualizations.
   * **Data Export:** Export processed and enriched dataframes to CSV for further analysis or reporting.
 
@@ -186,7 +186,7 @@ dfast = dfast.dropna(subset=['sqft'])
 
 ### Price Per Square Foot Calculation & Neighborhood Analysis
 
-After obtaining square footage, the $$/sqft$ metric is calculated. Descriptive statistics and box plots are then generated, with an initial filter applied to remove extreme outliers and focus on a more typical range of values for a "reasonable price analysis."
+After obtaining square footage, the $/sqft metric is calculated. Descriptive statistics and box plots are then generated, with an initial filter applied to remove extreme outliers and focus on a more typical range of values for a "reasonable price analysis."
 
 ```python
 # (Reload processed data if starting here)
@@ -222,8 +222,8 @@ This plot illustrates the distribution of price per square foot for condo sales 
 A specific analysis of condo sales in **Skyline Tower** (23-15 44TH DRIVE) was conducted due to its significance in the LIC market. This involved:
 
   * Filtering the LIC dataset for the specific address.
-  * Carefully cleaning the data to exclude **"bulk sales"** (transactions with unusually high `SALE PRICE` values that represent multiple units sold to a single entity, which would skew $$/sqft$ calculations for individual units). Outliers, like transactions above $2,610,739 or below $492,000, were identified and removed for this specific analysis.
-  * Analyzing the descriptive statistics and distribution of $$/sqft$ for individual unit sales within Skyline Tower.
+  * Carefully cleaning the data to exclude **"bulk sales"** (transactions with unusually high `SALE PRICE` values that represent multiple units sold to a single entity, which would skew $/sqft calculations for individual units). Outliers, like transactions above $2,610,739 or below $492,000, were identified and removed for this specific analysis.
+  * Analyzing the descriptive statistics and distribution of $/sqft for individual unit sales within Skyline Tower.
   * Visualizing monthly sales trends for this building.
 
 ### Skyline Tower Price Analysis (Filtered Data)
@@ -263,7 +263,7 @@ std    3.980797e+05                      NaN  220.398092   268.356534
 df2['$/sqft'].plot.box(title='Skyline Tower (23-15 44TH DRIVE) $ / sqft', vert=False)
 ```
 
-To get an even clearer picture, a box plot excluding very high outliers in $$/sqft$ (above $2500) is also provided:
+To get an even clearer picture, a box plot excluding very high outliers in $/sqft (above $2500) is also provided:
 
 ```python
 df2[df2['$/sqft'] < 2500]['$/sqft'].plot.box(title='Skyline Tower (23-15 44TH DRIVE) $ / sqft (Excluding High Outliers)', vert=False)
@@ -281,8 +281,8 @@ df2.groupby(['year', 'month']).size().plot.bar(figsize=(24, 6), rot=45, title='S
 
 Based on the processed residential condo sales data from 2018 to 2025, with valid sale prices and integrated square footage:
 
-  * **Long Island City (LIC):** Showed a median price per square foot ($$/sqft$) of approximately **$1462**. This is based on 1727 transactions within a reasonable $$/sqft$ range ($500 - $3000), indicating a robust market.
-  * **Astoria:** Recorded a lower median price per square foot of about **$1162**. This was derived from 374 transactions within its defined $$/sqft$ range ($500 - $2400).
+  * **Long Island City (LIC):** Showed a median price per square foot ($/sqft) of approximately **$1462**. This is based on 1727 transactions within a reasonable $/sqft range ($500 - $3000), indicating a robust market.
+  * **Astoria:** Recorded a lower median price per square foot of about **$1162**. This was derived from 374 transactions within its defined $/sqft range ($500 - $2400).
 
 These findings suggest that, on average, LIC condominiums commanded a higher price per square foot than those in Astoria during the analyzed period. This could be due to factors like LIC's newer developments, closer proximity to Manhattan, and extensive amenities.
 

@@ -9,7 +9,7 @@ Whether you're a real estate professional, a data science enthusiast, or simply 
 This Jupyter notebook-based project delivers a comprehensive analytical pipeline to:
 
   * **Acquire and Clean Data:** Ingest raw real estate transaction data from the NYC Department of Finance (DOF), performing robust cleaning and standardization.
-  * **Enrich Data:** Integrate external data, specifically using the Socrata Open Data API to fetch crucial **Gross Square Footage (SQFT)** information for individual units, which is essential for accurate price per square foot calculations.
+  * **Enrich Data:** Integrate external data, specifically using the Socrata Open Data API to fetch crucial **Gross Square Footage (sqft)** information for individual units, which is essential for accurate price per square foot calculations.
   * **Analyze Market Trends:** Calculate and analyze price per square foot metrics for condo sales in LIC and Astoria, offering insights into neighborhood-specific market dynamics.
   * **Visualize Findings:** Generate insightful visualizations to compare property values and distributions across both neighborhoods, including a detailed focus on the prominent **Skyline Tower**.
 
@@ -19,8 +19,8 @@ This Jupyter notebook-based project delivers a comprehensive analytical pipeline
   * **Robust Data Cleaning:** Automate the cleaning process by dropping irrelevant columns and converting data types for better analysis.
   * **Neighborhood-Specific Processing:** Filter and process data for LIC and Astoria to analyze their unique market dynamics, focusing on specific property types and sale conditions.
   * **Address Standardization:** Clean and standardize address formats for consistency, which is crucial for successful API lookups.
-  * **External Data Integration:** Leverage the Socrata Open Data API to fetch **Gross Square Footage (SQFT)** for individual units, enhancing the accuracy of price calculations.
-  * **Price Per Square Foot Calculation:** Compute a standardized $$/SQFT$ metric to enable fair comparisons of property values.
+  * **External Data Integration:** Leverage the Socrata Open Data API to fetch **Gross Square Footage (sqft)** for individual units, enhancing the accuracy of price calculations.
+  * **Price Per Square Foot Calculation:** Compute a standardized $$/sqft$ metric to enable fair comparisons of property values.
   * **Outlier Handling:** Implement basic filtering to remove extreme outliers and focus on a more reasonable range of price per square foot values, ensuring more meaningful statistical descriptions and visualizations.
   * **Data Export:** Export processed and enriched dataframes to CSV for further analysis or reporting.
 
@@ -36,12 +36,12 @@ This analysis relies on data from two primary sources:
 ```
 .
 ├── lic_ast_condo_sales_analysis.ipynb  # Main Jupyter Notebook for analysis
-├── lic_chart.png                      # Visualization for LIC $/SQFT (sample)
-├── lic_plot.png                       # Another visualization for LIC $/SQFT (sample)
-├── ast_chart.png                      # Visualization for Astoria $/SQFT (sample)
-├── ast_plot.png                       # Another visualization for Astoria $/SQFT (sample)
-├── skyline_tower_boxplot_full.png     # Boxplot for Skyline Tower $/SQFT (full data)
-├── skyline_tower_boxplot_filtered.png # Boxplot for Skyline Tower $/SQFT (filtered)
+├── lic_chart.png                      # Visualization for LIC $/sqft (sample)
+├── lic_plot.png                       # Another visualization for LIC $/sqft (sample)
+├── ast_chart.png                      # Visualization for Astoria $/sqft (sample)
+├── ast_plot.png                       # Another visualization for Astoria $/sqft (sample)
+├── skyline_tower_boxplot_full.png     # Boxplot for Skyline Tower $/sqft (full data)
+├── skyline_tower_boxplot_filtered.png # Boxplot for Skyline Tower $/sqft (filtered)
 ├── skyline_tower_sales_by_month_year.png # Bar chart for Skyline Tower sales by month/year
 └── README.md                          # This README file
 ```
@@ -186,7 +186,7 @@ dfast = dfast.dropna(subset=['sqft'])
 
 ### Price Per Square Foot Calculation & Neighborhood Analysis
 
-After obtaining square footage, the $$/SQFT$ metric is calculated. Descriptive statistics and box plots are then generated, with an initial filter applied to remove extreme outliers and focus on a more typical range of values for a "reasonable price analysis."
+After obtaining square footage, the $$/sqft$ metric is calculated. Descriptive statistics and box plots are then generated, with an initial filter applied to remove extreme outliers and focus on a more typical range of values for a "reasonable price analysis."
 
 ```python
 # (Reload processed data if starting here)
@@ -198,22 +198,22 @@ dfast['$/sqft'] = round(dfast['SALE PRICE'] / dfast['sqft'])
 
 print("LIC Data Description (filtered for reasonable $/sqft):")
 print(dflic[(dflic['$/sqft']>500) & (dflic['$/sqft']<3000)].describe())
-dflic[(dflic['$/sqft']>500) & (dflic['$/sqft']<3000)]['$/sqft'].plot.box(title='LIC 2018-2025 $ / SQFT', vert=False)
+dflic[(dflic['$/sqft']>500) & (dflic['$/sqft']<3000)]['$/sqft'].plot.box(title='LIC 2018-2025 $ / sqft', vert=False)
 
 print("\nAstoria Data Description (filtered for reasonable $/sqft):")
 print(dfast[(dfast['$/sqft']>500) & (dfast['$/sqft']<2400)].describe())
-dfast[(dfast['$/sqft']>500) & (dfast['$/sqft']<2400)]['$/sqft'].plot.box(title='Astoria 2018-2025 $ / SQFT', vert=False)
+dfast[(dfast['$/sqft']>500) & (dfast['$/sqft']<2400)]['$/sqft'].plot.box(title='Astoria 2018-2025 $ / sqft', vert=False)
 ```
 
 ## 📈 Insights & Visualizations
 
 The analysis culminates in key metrics like the median price per square foot for condos in LIC and Astoria. Box plots help visualize these distributions, identify typical price ranges, and highlight outliers.
 
-### Long Island City (LIC) 2018-2025 $/SQFT
+### Long Island City (LIC) 2018-2025 $/sqft
 
 This plot shows the distribution of price per square foot for condo sales in Long Island City. The central line indicates the **median**, the box represents the **interquartile range (IQR)**, and the "whiskers" show data variability outside the IQR. Outliers are plotted as individual points.
 
-### Astoria (AST) 2018-2025 $/SQFT
+### Astoria (AST) 2018-2025 $/sqft
 
 This plot illustrates the distribution of price per square foot for condo sales in Astoria, using the same conventions as the LIC plot.
 
@@ -222,8 +222,8 @@ This plot illustrates the distribution of price per square foot for condo sales 
 A specific analysis of condo sales in **Skyline Tower** (23-15 44TH DRIVE) was conducted due to its significance in the LIC market. This involved:
 
   * Filtering the LIC dataset for the specific address.
-  * Carefully cleaning the data to exclude **"bulk sales"** (transactions with unusually high `SALE PRICE` values that represent multiple units sold to a single entity, which would skew $$/SQFT$ calculations for individual units). Outliers, like transactions above $2,610,739 or below $492,000, were identified and removed for this specific analysis.
-  * Analyzing the descriptive statistics and distribution of $$/SQFT$ for individual unit sales within Skyline Tower.
+  * Carefully cleaning the data to exclude **"bulk sales"** (transactions with unusually high `SALE PRICE` values that represent multiple units sold to a single entity, which would skew $$/sqft$ calculations for individual units). Outliers, like transactions above $2,610,739 or below $492,000, were identified and removed for this specific analysis.
+  * Analyzing the descriptive statistics and distribution of $$/sqft$ for individual unit sales within Skyline Tower.
   * Visualizing monthly sales trends for this building.
 
 ### Skyline Tower Price Analysis (Filtered Data)
@@ -257,16 +257,16 @@ max    2.610739e+06  2025-05-30 00:00:00.000 1326.000000  4928.000000
 std    3.980797e+05                      NaN  220.398092   268.356534
 ```
 
-### Skyline Tower $/SQFT Distribution
+### Skyline Tower $/sqft Distribution
 
 ```python
-df2['$/sqft'].plot.box(title='Skyline Tower (23-15 44TH DRIVE) $ / SQFT', vert=False)
+df2['$/sqft'].plot.box(title='Skyline Tower (23-15 44TH DRIVE) $ / sqft', vert=False)
 ```
 
-To get an even clearer picture, a box plot excluding very high outliers in $$/SQFT$ (above $2500) is also provided:
+To get an even clearer picture, a box plot excluding very high outliers in $$/sqft$ (above $2500) is also provided:
 
 ```python
-df2[df2['$/sqft'] < 2500]['$/sqft'].plot.box(title='Skyline Tower (23-15 44TH DRIVE) $ / SQFT (Excluding High Outliers)', vert=False)
+df2[df2['$/sqft'] < 2500]['$/sqft'].plot.box(title='Skyline Tower (23-15 44TH DRIVE) $ / sqft (Excluding High Outliers)', vert=False)
 ```
 
 ### Skyline Tower Sales Trend by Month and Year
@@ -281,8 +281,8 @@ df2.groupby(['year', 'month']).size().plot.bar(figsize=(24, 6), rot=45, title='S
 
 Based on the processed residential condo sales data from 2018 to 2025, with valid sale prices and integrated square footage:
 
-  * **Long Island City (LIC):** Showed a median price per square foot ($$/SQFT$) of approximately **$1462**. This is based on 1727 transactions within a reasonable $$/SQFT$ range ($500 - $3000), indicating a robust market.
-  * **Astoria:** Recorded a lower median price per square foot of about **$1162**. This was derived from 374 transactions within its defined $$/SQFT$ range ($500 - $2400).
+  * **Long Island City (LIC):** Showed a median price per square foot ($$/sqft$) of approximately **$1462**. This is based on 1727 transactions within a reasonable $$/sqft$ range ($500 - $3000), indicating a robust market.
+  * **Astoria:** Recorded a lower median price per square foot of about **$1162**. This was derived from 374 transactions within its defined $$/sqft$ range ($500 - $2400).
 
 These findings suggest that, on average, LIC condominiums commanded a higher price per square foot than those in Astoria during the analyzed period. This could be due to factors like LIC's newer developments, closer proximity to Manhattan, and extensive amenities.
 

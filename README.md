@@ -212,12 +212,14 @@ The analysis culminates in key metrics like the median price per square foot for
 ### Long Island City (LIC) 2018-2025 $/sqft
 
 This plot shows the distribution of price per square foot for condo sales in Long Island City. The central line indicates the **median**, the box represents the **interquartile range (IQR)**, and the "whiskers" show data variability outside the IQR. Outliers are plotted as individual points.
+
 ![lic_boxplot_price_per_sqft](lic_chart.png)
 ![lic_boxplot_price_per_sqft](lic_plot.png)
 
 ### Astoria (AST) 2018-2025 $/sqft
 
 This plot illustrates the distribution of price per square foot for condo sales in Astoria, using the same conventions as the LIC plot.
+
 ![ast_boxplot_price_per_sqft](ast_chart.png)
 ![ast_boxplot_price_per_sqft](ast_plot.png)
 

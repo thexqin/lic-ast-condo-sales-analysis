@@ -35,14 +35,13 @@ This analysis relies on data from two primary sources:
 
 ```
 .
-├── lic_ast_condo_sales_analysis.ipynb  # Main Jupyter Notebook for analysis
-├── lic_chart.png                      # Visualization for LIC $/sqft (sample)
-├── lic_plot.png                       # Another visualization for LIC $/sqft (sample)
-├── ast_chart.png                      # Visualization for Astoria $/sqft (sample)
-├── ast_plot.png                       # Another visualization for Astoria $/sqft (sample)
-├── skyline_tower_boxplot_full.png     # Boxplot for Skyline Tower $/sqft (full data)
-├── skyline_tower_boxplot_filtered.png # Boxplot for Skyline Tower $/sqft (filtered)
-├── skyline_tower_sales_by_month_year.png # Bar chart for Skyline Tower sales by month/year
+├── lic_ast_condo_sales_analysis.ipynb # Main Jupyter Notebook for analysis
+├── lic_chart.png                      # Table for LIC $/sqft (sample)
+├── lic_plot.png                       # Boxplot visualization for LIC $/sqft (sample)
+├── ast_chart.png                      # Table for Astoria $/sqft (sample)
+├── ast_plot.png                       # Boxplot visualization for Astoria $/sqft (sample)
+├── 2315_plot.png                      # Boxplot for Skyline Tower $/sqft
+├── 2315_bar.png                       # Bar chart for Skyline Tower sales by month/year
 └── README.md                          # This README file
 ```
 

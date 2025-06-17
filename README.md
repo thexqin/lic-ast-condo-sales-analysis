@@ -36,6 +36,7 @@ This analysis relies on data from two primary sources:
 ```
 .
 ├── lic_ast_condo_sales_analysis.ipynb # Main Jupyter Notebook for analysis
+├── 2020-2025.csv                      # Raw NYC DOF Rolling Sales Data
 ├── lic_chart.png                      # Table for LIC $/sqft (sample)
 ├── lic_plot.png                       # Boxplot visualization for LIC $/sqft (sample)
 ├── ast_chart.png                      # Table for Astoria $/sqft (sample)

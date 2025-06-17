@@ -275,6 +275,8 @@ To get an even clearer picture, a box plot excluding very high outliers in $/sqf
 df2[df2['$/sqft'] < 2500]['$/sqft'].plot.box(title='Skyline Tower (23-15 44TH DRIVE) $ / sqft (Excluding High Outliers)', vert=False)
 ```
 
+![2315_boxplot_price_per_sqft](2315_plot.png)
+
 ### Skyline Tower Sales Trend by Month and Year
 
 ```python

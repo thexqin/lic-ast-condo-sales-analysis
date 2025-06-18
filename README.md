@@ -414,15 +414,6 @@ The average monthly tax per square foot is approximately **$1.41**. We also iden
 df3[df3['tax/month/sqft']>1.5]
 ```
 
-Output:
-
-```
-     SALE PRICE  SALE DATE housenum streetname aptno    sqft  $/sqft                     owner  curtxbtot  month  year   tax/year  tax/year/sqft  tax/month/sqft
-191     1106173  2023-05-11    23-15  44TH DRIVE   709   625.0  1770.0       HENRY, ROBERT DAWSON JR.      94408      5  2023  11801.00          18.88            1.57
-508     1639300  2021-08-27    23-15  44TH DRIVE   712   977.0  1678.0  THOMPSON, SCOTT R JR.     186662      8  2021  23332.75          23.88            1.99
-655     1517924  2021-05-24    23-15  44TH DRIVE   708   978.0  1552.0            MERTZ, THOMAS     156498      5  2021  19562.25          20.00            1.67
-```
-
 A box plot further visualizes the distribution of monthly tax per square foot, excluding the outliers.
 
 ![2315_tax](2315_tax.png)

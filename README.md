@@ -42,17 +42,18 @@ This analysis relies on data from two primary sources:
 .
 ├── lic_ast_condo_sales_analysis.ipynb # Main Jupyter Notebook for analysis
 ├── 2020-2025.csv                      # Raw NYC DOF Rolling Sales Data
-├── lic_chart.png                      # Table for LIC $/sqft (sample)
-├── lic_plot.png                       # Boxplot visualization for LIC $/sqft (sample)
-├── ast_chart.png                      # Table for Astoria $/sqft (sample)
-├── ast_plot.png                       # Boxplot visualization for Astoria $/sqft (sample)
-├── 2315_plot.png                      # Boxplot for Skyline Tower $/sqft
-├── 2315_bar.png                       # Bar chart for Skyline Tower sales by month/year
-├── 2315_reg1.png                      # Regplot for Skyline Tower sqft vs Sale Price
-├── 2315_reg2.png                      # Regplot for Skyline Tower sqft vs $/sqft
-├── 2315_sale1.png                     # Bar chart for Skyline Tower Year vs Avg Sale Price
-├── 2315_sale2.png                     # Bar chart for Skyline Tower Year vs Avg $/sqft
-├── 2315_tax.png                       # Boxplot for Skyline Tower Tax/Month/sqft
+├── chart/
+│   ├── lic_chart.png                  # Table for LIC $/sqft
+│   ├── lic_plot.png                   # Boxplot visualization for LIC $/sqft
+│   ├── ast_chart.png                  # Table for Astoria $/sqft
+│   ├── ast_plot.png                   # Boxplot visualization for Astoria $/sqft
+│   ├── 2315_plot.png                  # Boxplot for Skyline Tower $/sqft
+│   ├── 2315_bar.png                   # Bar chart for Skyline Tower sales by month/year
+│   ├── 2315_reg1.png                  # Regplot for Skyline Tower sqft vs Sale Price
+│   ├── 2315_reg2.png                  # Regplot for Skyline Tower sqft vs $/sqft
+│   ├── 2315_sale1.png                 # Bar chart for Skyline Tower Year vs Avg Sale Price
+│   ├── 2315_sale2.png                 # Bar chart for Skyline Tower Year vs Avg $/sqft
+│   └── 2315_tax.png                   # Boxplot for Skyline Tower Tax/Month/sqft
 └── README.md                          # This README file
 ```
 
@@ -223,15 +224,15 @@ The analysis culminates in key metrics like the median price per square foot for
 
 This plot shows the distribution of price per square foot for condo sales in Long Island City. The central line indicates the **median**, the box represents the **interquartile range (IQR)**, and the "whiskers" show data variability outside the IQR. Outliers are plotted as individual points.
 
-![lic_boxplot_price_per_sqft](lic_chart.png)
-![lic_boxplot_price_per_sqft](lic_plot.png)
+![lic_boxplot_price_per_sqft](chart/lic_chart.png)
+![lic_boxplot_price_per_sqft](chart/lic_plot.png)
 
 ### Astoria (AST) 2018-2025 $/sqft
 
 This plot illustrates the distribution of price per square foot for condo sales in Astoria, using the same conventions as the LIC plot.
 
-![ast_boxplot_price_per_sqft](ast_chart.png)
-![ast_boxplot_price_per_sqft](ast_plot.png)
+![ast_boxplot_price_per_sqft](chart/ast_chart.png)
+![ast_boxplot_price_per_sqft](chart/ast_plot.png)
 
 ## 🏢 Deep Dive: Skyline Tower (23-15 44TH DRIVE, LIC)
 
@@ -323,7 +324,7 @@ To get an even clearer picture, a box plot excluding very high outliers in $/sqf
 df2[df2['$/sqft'] < 2500]['$/sqft'].plot.box(title='Skyline Tower (23-15 44TH DRIVE) $ / sqft (Excluding High Outliers)', vert=False)
 ```
 
-![2315_boxplot_price_per_sqft](2315_plot.png)
+![2315_boxplot_price_per_sqft](chart/2315_plot.png)
 
 ### Skyline Tower Sales Trend by Month and Year
 
@@ -333,7 +334,7 @@ df2['year'] = df2['SALE DATE'].dt.year
 df2.groupby(['year', 'month']).size().plot.bar(figsize=(24, 6), rot=45, title='Skyline Tower Sales by Month')
 ```
 
-![2315_bar_plot](2315_bar.png)
+![2315_bar_plot](chart/2315_bar.png)
 
 ### Skyline Tower Square Footage vs. Sale Price and Price per Square Foot
 
@@ -348,7 +349,7 @@ sns.regplot(df3, x='sqft', y='SALE PRICE')
 plt.title('23-15 sqft vs sale price')
 plt.tight_layout()
 ```
-![2315_reg1](2315_reg1.png)
+![2315_reg1](chart/2315_reg1.png)
 
 ```python
 plt.figure(figsize=(14, 6))
@@ -356,7 +357,7 @@ sns.regplot(df3, x='sqft', y='$/sqft')
 plt.title('23-15 sqft vs $/sqft')
 plt.tight_layout()
 ```
-![2315_reg2](2315_reg2.png)
+![2315_reg2](chart/2315_reg2.png)
 
 ### Skyline Tower Annual Average Sale Price and Price per Square Foot Trends
 
@@ -369,7 +370,7 @@ plt.title('23-15 year vs sale price')
 plt.tight_layout()
 ```
 
-![2315_sale1](2315_sale1.png)
+![2315_sale1](chart/2315_sale1.png)
 
 ```python
 plt.figure(figsize=(7, 4))
@@ -377,7 +378,7 @@ sns.barplot(df3.groupby('year')['$/sqft'].mean())
 plt.title('23-15 year vs $/sqft')
 plt.tight_layout()
 ```
-![2315_sale2](2315_sale2.png)
+![2315_sale2](chart/2315_sale2.png)
 
 ### Skyline Tower Tax Analysis
 
@@ -416,7 +417,7 @@ df3[df3['tax/month/sqft']>1.5]
 
 A box plot further visualizes the distribution of monthly tax per square foot, excluding the outliers.
 
-![2315_tax](2315_tax.png)
+![2315_tax](chart/2315_tax.png)
 
 ### Skyline Tower Owner Demographics
 

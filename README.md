@@ -291,18 +291,9 @@ df2315 = pd.read_csv('23-15.csv', parse_dates=['SALE DATE'])
 df2 = df2315[(df2315['SALE PRICE'] <= 2610739) &
              (df2315['SALE PRICE'] >= 492000)
              ].copy()
-# Assuming sqft column is added here, based on earlier general steps or pre-computed.
-# If not, it needs to be added via API call or merge before $/sqft calculation.
-# For simplicity, assuming 'sqft' is present after filtering.
-df2['sqft'] = get_info_multithreaded_sodapy(df2, 1) # Fetch sqft if not already
-df2 = df2.dropna(subset=['sqft']) # Drop rows where sqft could not be fetched
-df2['$/sqft'] = round(df2['SALE PRICE'] / df2['sqft'])
-
-df2 = df2.drop(columns=['BOROUGH', 'NEIGHBORHOOD', 'BUILDING CLASS CATEGORY', 'TAX CLASS AT PRESENT', 'BLOCK', 'LOT']).reset_index(drop=True)
-
-
-print("\nSkyline Tower (23-15 44TH DRIVE) Price Analysis (Individual Units):")
-print(df2.describe())
+df2 = df2.drop(columns=['ZIP CODE', 'YEAR BUILT'])
+df2 = df2.reset_index(drop=True)
+df2
 ```
 
 **Output:**

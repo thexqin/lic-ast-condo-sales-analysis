@@ -379,7 +379,7 @@ plt.tight_layout()
 ```
 ![2315_sale2](2315_sale2.png)
 
-### 📊 Skyline Tower Tax Analysis
+### Skyline Tower Tax Analysis
 
 We calculated the annual and monthly property tax per square foot for units in Skyline Tower to understand recurring ownership costs.
 
@@ -418,7 +418,7 @@ A box plot further visualizes the distribution of monthly tax per square foot, e
 
 ![2315_tax](2315_tax.png)
 
-### 👤 Skyline Tower Owner Demographics
+### Skyline Tower Owner Demographics
 
 We analyzed the types of owners (individual vs. corporate entities) and identified individual owners based on common Chinese surnames.
 

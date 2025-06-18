@@ -293,7 +293,7 @@ df2 = df2315[(df2315['SALE PRICE'] <= 2610739) &
              ].copy()
 df2 = df2.drop(columns=['ZIP CODE', 'YEAR BUILT'])
 df2 = df2.reset_index(drop=True)
-df2
+df2.describe()
 ```
 
 **Output:**
@@ -347,7 +347,6 @@ plt.figure(figsize=(14, 6))
 sns.regplot(df3, x='sqft', y='SALE PRICE')
 plt.title('23-15 sqft vs sale price')
 plt.tight_layout()
-plt.show()
 ```
 ![2315_reg1](2315_reg1.png)
 
@@ -356,7 +355,6 @@ plt.figure(figsize=(14, 6))
 sns.regplot(df3, x='sqft', y='$/sqft')
 plt.title('23-15 sqft vs $/sqft')
 plt.tight_layout()
-plt.show()
 ```
 ![2315_reg2](2315_reg2.png)
 
@@ -369,7 +367,6 @@ plt.figure(figsize=(7, 4))
 sns.barplot(df3.groupby('year')['SALE PRICE'].mean())
 plt.title('23-15 year vs sale price')
 plt.tight_layout()
-plt.show()
 ```
 
 ![2315_sale1](2315_sale1.png)
@@ -379,7 +376,6 @@ plt.figure(figsize=(7, 4))
 sns.barplot(df3.groupby('year')['$/sqft'].mean())
 plt.title('23-15 year vs $/sqft')
 plt.tight_layout()
-plt.show()
 ```
 ![2315_sale2](2315_sale2.png)
 

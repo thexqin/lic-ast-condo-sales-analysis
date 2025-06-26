@@ -4,6 +4,8 @@ Welcome to the `lic-ast-condo-sales-analysis` repository\! 🏙️ This project 
 
 Whether you're a real estate professional, a data science enthusiast, or simply curious about the NYC property market, this repository provides a ready-to-use analytical pipeline.
 
+Check out [Part 2 of the analysis focused on Skyline tower](https://github.com/thexqin/lic-ast-condo-sales-analysis2)
+
 ## 🌟 Project Overview
 
 This Jupyter notebook-based project delivers a comprehensive analytical pipeline to:
